@@ -48,7 +48,7 @@ def reset():
 if os.name == 'nt':
     '''OS is Windows'''
     #command = "rom-bsl.exe -c" + str.upper(comPort) + " -m1 -ievpr " + firmwareImage
-    command = ".\mspdebug\mspdebug.exe rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
+    command = ".\mspdebug\mspdebug.exe rom-bsl -d " + str.upper(comPort) + " \"prog " + firmwareImage + "\""
 else:
     '''OS is Linux'''
     command = "./mspdebug/mspdebug rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
