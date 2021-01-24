@@ -295,7 +295,7 @@ subsection 3.2.
 ## Software
 MIT License
 
-Copyright (c) 2020 Upside Down Labs
+Copyright (c) 2021 Upside Down Labs
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
