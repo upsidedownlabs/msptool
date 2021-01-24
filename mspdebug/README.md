@@ -4,6 +4,8 @@ The mspdebug tool has been compiled on Fedora and Windows 10 to create these bin
 
 To compile it in linux I executed `make` command in the source directory. To compile it in Windows 10 before running `make` I had to edit some things in Makefile, find more info [here](https://github.com/dlbeer/mspdebug/issues/101#issuecomment-760713289).
 
+Update: The manually compiled mspdebug for Linux has been replaced with the mspdebug from Energia (energia-1.8.10E23/hardware/tools/mspdebug/mspdebug). The previous binary required some extra library but, the recent binary is standalone. Thanks to Energia project team!
+
 # rom-bsl.exe
 
 This executable is a renamed `BSLDEMO-2.01c.exe` found [here](https://github.com/gbhug5a/MSP430-BSL/tree/master/BSLDEMO-2.01c/Executable), Source for the same can be found [here](https://github.com/gbhug5a/MSP430-BSL/tree/master/BSLDEMO-2.01c/Source). I compiled it in Windows 10 using [lcc](https://lcc-win32.services.net/) compiler. 
