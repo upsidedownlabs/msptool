@@ -21,6 +21,7 @@
 
 import os
 import serial
+import platform
 import argparse
 
 # Argument parsing
@@ -45,13 +46,20 @@ def reset():
     bridge.close()
 
 # Get the OS specific command to execute
-if os.name == 'nt':
-    '''OS is Windows'''
+if platform.system() == 'Windows':
+    '''Command for Windows'''
     #command = "rom-bsl.exe -c" + str.upper(comPort) + " -m1 -ievpr " + firmwareImage
     command = ".\mspdebug\mspdebug.exe rom-bsl -d " + str.upper(comPort) + " \"prog " + firmwareImage + "\""
-else:
-    '''OS is Linux'''
+elif platform.system() == 'Linux':
+    '''Command for Linux'''
     command = "./mspdebug/mspdebug rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
+elif platform.system() == 'Darwin':
+    '''Command for OS X'''
+    command = "./mspdebug/mspdebug_osx rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
+else:
+    '''Confused!'''
+    print("OS detection ERROR!")
+    print("Only Linux/Windows/OSx supported..")
 
 # Print the command
 print("Executing: " + command)
