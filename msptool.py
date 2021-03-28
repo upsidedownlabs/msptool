@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#
 #  Copyright (c) 2021 Upside Down Labs <contact@upsidedownlabs.tech, myupsidedownlab@gmail.com>
 #  Author: Deepak Khatri (lorforlinux) <deepak@upsidedownlabs.tech, deepaklorkhatri7@gmail.com>
 # 
@@ -20,21 +22,31 @@
 # SOFTWARE.
 
 import os
-import serial
 import platform
 import argparse
 
+try:
+    import serial
+except ImportError:
+    print("Pyserial is not installed!")
+    raise
+
+__version__ = "0.2"
+
 # Argument parsing
 help = {"port": "USB-UART bridge port, Windows: COM#, Linux: /dev/tty#",
-        "firmware": ".txt(TI-TXT)/.elf/.hex/.bin format firmware image from msp430-gcc/CCS/Energia"}
+        "firmware": ".txt(TI-TXT)/.elf/.hex/.bin format firmware image from msp430-gcc/CCS/Energia",
+        "directory": "relative msptool directory (if required!)"}
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--port', required=True, type = str, help=help["port"])
 parser.add_argument('-f', '--firmware', required=True, type=argparse.FileType('r'), help=help["firmware"])
+parser.add_argument('-d', '--directory', required=False, type= str, default=".", help=help["directory"])
 args = parser.parse_args()
 
 # Extract info from parsed arguments
 comPort = args.port
 firmwareImage = args.firmware.name
+mspdebugDirectory = args.directory
 
 # Method to Reset connected MSP430
 def reset():
@@ -49,22 +61,22 @@ def reset():
 if platform.system() == 'Windows':
     '''Command for Windows'''
     #command = "rom-bsl.exe -c" + str.upper(comPort) + " -m1 -ievpr " + firmwareImage
-    command = ".\mspdebug\mspdebug.exe rom-bsl -d " + str.upper(comPort) + " \"prog " + firmwareImage + "\""
+    command = mspdebugDirectory + "\mspdebug\mspdebug.exe rom-bsl -d " + str.upper(comPort) + " \"prog " + firmwareImage + "\""
 elif platform.system() == 'Linux':
     '''Command for Linux'''
-    command = "./mspdebug/mspdebug rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
+    command = mspdebugDirectory + "/mspdebug/mspdebug rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
 elif platform.system() == 'Darwin':
     '''Command for OS X'''
-    command = "./mspdebug/mspdebug_osx rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
+    command = mspdebugDirectory + "/mspdebug/mspdebug_osx rom-bsl -d " + comPort + " \"prog " + firmwareImage + "\""
 else:
     '''Confused!'''
     print("OS detection ERROR!")
     print("Only Linux/Windows/OSx supported..")
 
 # Print the command
+print("msptool v" + __version__)
 print("Executing: " + command)
 # Execute command
 os.system(command)
 # Reset chip
 reset()
-
