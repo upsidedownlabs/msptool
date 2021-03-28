@@ -1,5 +1,5 @@
-#  Copyright (c) 2021 Upside Down Labs
-#  Author: Deepak Khatri <myupsidedownlab@gmail.com>
+#  Copyright (c) 2021 Upside Down Labs <contact@upsidedownlabs.tech, myupsidedownlab@gmail.com>
+#  Author: Deepak Khatri (lorforlinux) <deepak@upsidedownlabs.tech, deepaklorkhatri7@gmail.com>
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ import argparse
 
 # Argument parsing
 help = {"port": "USB-UART bridge port, Windows: COM#, Linux: /dev/tty#",
-        "firmware": "TI-TXT format firmware image from msp430-gcc/CCS"}
+        "firmware": ".txt(TI-TXT)/.elf/.hex/.bin format firmware image from msp430-gcc/CCS/Energia"}
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--port', required=True, type = str, help=help["port"])
 parser.add_argument('-f', '--firmware', required=True, type=argparse.FileType('r'), help=help["firmware"])

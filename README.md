@@ -1,6 +1,6 @@
 # Upside Down Labs msptool
 
-[![MSP430 Bread Stick](https://img.shields.io/badge/Board-MSP430_Breadstick_🥖-informational)](https://github.com/upsidedownlabs/MSP430-Breadstick) ![msptool version](https://img.shields.io/badge/Version-0.0.1-success)
+[![MSP430 Bread Stick](https://img.shields.io/badge/Board-MSP430_Breadstick_🥖-informational)](https://github.com/upsidedownlabs/MSP430-Breadstick) ![msptool version](https://img.shields.io/badge/Version-0.1-success)
 
 
 The msptool is MSP430G2xx3 flashing tool supporting Linux &amp; Windows, it uses [mspdebug](https://github.com/dlbeer/mspdebug) in the background to provide a very simple interface to flash the MSP430G2xx3 using any generic USB-UART bridge. It should work with any MSP430G2xx3 series MCU with BSL support, USB-UART bridge can be something like CP2102/4, CH340, PL2303, and FT232R/B.
@@ -14,7 +14,8 @@ optional arguments:
   -h, --help            show this help message and exit
   -p PORT, --port PORT  USB-UART bridge port, Windows: COM#, Linux: /dev/tty#
   -f FIRMWARE, --firmware FIRMWARE
-                        TI-TXT format firmware image from msp430-gcc/CCS
+                        .txt(TI-TXT)/.elf/.hex/.bin format firmware image from
+                        msp430-gcc/CCS/Energia
 ```
 
 
