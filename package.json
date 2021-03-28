@@ -1,0 +1,6 @@
+{
+	"name": "tool-msptool",
+	"description": "Upside Down Labs flashing tool for MSP430G2XX3",
+	"url": "https://github.com/upsidedownlabs/msptool",
+	"version": "0.1.0"
+}
