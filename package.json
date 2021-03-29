@@ -7,6 +7,10 @@
 		"texas instruments",
 		"msp430"
 	],
-	"url": "https://github.com/upsidedownlabs/msptool",
+	"license": "MIT",
+	"repository": {
+    	"type": "git",
+    	"url": "https://github.com/upsidedownlabs/msptool"
+	},
 	"version": "0.3"
 }
