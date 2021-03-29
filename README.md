@@ -8,7 +8,7 @@ The msptool is MSP430G2xx3 flashing tool supporting Linux &amp; Windows, it uses
 ###### msptool usage:
 ```
 [lorforlinux@dragon msptool]$ python msptool.py --help
-usage: msptool.py [-h] -p PORT -f FIRMWARE
+usage: msptool.py [-h] -p PORT -f FIRMWARE [-d DIRECTORY]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -16,6 +16,8 @@ optional arguments:
   -f FIRMWARE, --firmware FIRMWARE
                         .txt(TI-TXT)/.elf/.hex/.bin format firmware image from
                         msp430-gcc/CCS/Energia
+  -d DIRECTORY, --directory DIRECTORY
+                        relative msptool directory (if required!)
 ```
 
 
