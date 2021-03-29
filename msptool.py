@@ -31,7 +31,7 @@ except ImportError:
     print("Pyserial is not installed!")
     raise
 
-__version__ = "0.2"
+__version__ = "0.3"
 
 # Argument parsing
 help = {"port": "USB-UART bridge port, Windows: COM#, Linux: /dev/tty#",

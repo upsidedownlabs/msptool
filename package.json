@@ -1,6 +1,12 @@
 {
 	"name": "tool-msptool",
 	"description": "Upside Down Labs flashing tool for MSP430G2XX3",
+	"keywords": [
+		"flasher",
+		"upside down labs",
+		"texas instruments",
+		"msp430"
+	],
 	"url": "https://github.com/upsidedownlabs/msptool",
-	"version": "0.1.0"
+	"version": "0.3"
 }
